@@ -2,15 +2,68 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello Warduo!</title>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="foundation.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body style="background: white;">
-    <h1>Hello World!</h1>
-    <p>
-        We are using node <script>document.write(process.versions.node)</script>,
-        Chrome <script>document.write(process.versions.chrome)</script>,
-        and Electron <script>document.write(process.versions.electron)</script>
-    </p>
+<body>
+<form>
+    <div class="row">
+        <div class="medium-12 columns">
+            <h1>FZ EZ Video Downloader</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-12 columns">
+            <label>
+                Download Destination
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="text" onclick="setDirectory()" class="custom-file-input" id="directoryInput" disabled>
+                        <label class="custom-file-label" id="directoryInputLabel" for="directoryInput">Choose download directory</label>
+                    </div>
+                </div>
+                <span class="input-group">
+                    <input class="input-group-field" type="text" name="destination" placeholder="/path/to/your/generated/files">
+                    <span class="input-group-button">
+                        <button class="button" type="button" id="chooseDestination">Choose Directory</button>
+                    </span>
+                </span>
+            </label>
+        </div>
+    </div>
+    <div>
+        <h1></h1>
+        <input type="radio" id="videoType" name="video" value="" checked = "checked">
+        <label for="male">Video with Audio</label>
+        <input type="radio" id="audioType" name="video" value="video">
+        <label for="male">Audio only</label><br>
+    </div>
+    <div class="row">
+        <div class="medium-6 columns">
+            <label>
+                Song Name
+                <input type="text" name="name" placeholder="animation">
+            </label>
+            <label>
+                Artist Name
+                <input type="text" name="name" placeholder="animation">
+            </label>
+            <input
+    id="path-picker"
+    type="file"
+    webkitdirectory="true"
+/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-12 columns">
+            <button class="large expanded button" type="submit">DOWNLOAD</button>
+        </div>
+    </div>
+</form>
 </body>
+<script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+</script>
 </html>

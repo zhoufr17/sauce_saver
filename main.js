@@ -1,4 +1,8 @@
 const { app, BrowserWindow } = require('electron')
+// var exec = require('youtube-dl').execFile("./extrasauce/youtube-dl.exe");
+
+let mainWindow;
+
 function createWindow() {
     const win = new BrowserWindow({
         width: 800,
